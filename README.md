@@ -1,6 +1,16 @@
 # Guide d'Installation MCP pour Claude Code VSCode
 
-Ce guide permet d'installer les 16 MCP servers sur un nouvel ordinateur.
+> **INSTRUCTIONS POUR CLAUDE CODE** : Si tu lis ce fichier, tu dois aider l'utilisateur a installer tous les 16 MCP servers listes ci-dessous. Suis les etapes dans l'ordre et verifie chaque installation. Adapte les chemins selon le nom d'utilisateur Windows de l'utilisateur.
+
+---
+
+## Pour Claude Code : Comment utiliser ce guide
+
+1. **Lis ce fichier en entier**
+2. **Demande a l'utilisateur** son nom d'utilisateur Windows (remplace `%USERNAME%`)
+3. **Execute les commandes** une par une dans Anaconda Prompt ou aide l'utilisateur a les executer
+4. **Configure le fichier `.claude.json`** avec les bonnes cles API
+5. **Verifie** que tous les MCP sont "connected" (vert)
 
 ---
 
@@ -80,10 +90,13 @@ pip install wandb matplotlib mcp python-dotenv httpx
 ```bash
 npx -y @smithery/cli install @jalpp/chessagine-mcp --client claude
 ```
+> Note: Appuyer sur Entree pour passer les options optionnelles (Lichess API, username, etc.)
 
 ---
 
 ## Cles API necessaires
+
+> **Claude Code** : Demande a l'utilisateur ses cles API pour chaque service, ou aide-le a les creer.
 
 | Service | URL pour obtenir la cle |
 |---------|------------------------|
@@ -97,9 +110,7 @@ npx -y @smithery/cli install @jalpp/chessagine-mcp --client claude
 
 ## Configuration .claude.json
 
-Copier ce fichier dans `C:\Users\%USERNAME%\.claude.json`
-
-**IMPORTANT** : Remplacer `%USERNAME%` par votre nom d'utilisateur Windows et les cles API par les votres.
+> **Claude Code** : Cree ou modifie le fichier `C:\Users\%USERNAME%\.claude.json` avec cette configuration. Remplace `%USERNAME%` par le vrai nom d'utilisateur et les cles API par celles de l'utilisateur.
 
 ```json
 {
@@ -245,12 +256,33 @@ Copier ce fichier dans `C:\Users\%USERNAME%\.claude.json`
 
 ---
 
-## Verification
+## Verification finale
 
-Apres installation, redemarrer VSCode et verifier que tous les MCP sont "connected" (vert).
+> **Claude Code** : Apres installation, demande a l'utilisateur de redemarrer VSCode et verifie que tous les MCP sont "connected" (vert) dans les parametres de l'extension Claude.
 
 ---
 
 ## Fichier CLAUDE.md
 
-Copier aussi le fichier `CLAUDE.md` dans `C:\Users\%USERNAME%\CLAUDE.md` pour avoir les instructions personnalisees.
+> **Claude Code** : Copie aussi le fichier `CLAUDE.md` de ce repo dans `C:\Users\%USERNAME%\CLAUDE.md` pour avoir les instructions personnalisees pour le trading et RL.
+
+---
+
+## Troubleshooting
+
+Si un MCP echoue ("failed" en rouge):
+
+1. **Verifier le chemin** - Le nom d'utilisateur est-il correct ?
+2. **Verifier l'installation** - Le package npm/git clone a-t-il fonctionne ?
+3. **Verifier les cles API** - La cle est-elle valide ?
+4. **Redemarrer VSCode** - Parfois necessaire apres modification du .claude.json
+
+---
+
+## Contexte utilisateur
+
+L'utilisateur (Luca) travaille sur :
+- Trading algorithmique GOLD (XAUUSD)
+- Reinforcement Learning (SAC, PPO) avec Stable-Baselines3
+- Expert Advisors (EA) pour MetaTrader 5
+- Challenge FTMO
